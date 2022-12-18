@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TamiraneDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="araclar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="plaka" Type="varchar" MaxLength="50" />
+          <Property Name="marka" Type="varchar" MaxLength="50" />
+          <Property Name="model" Type="varchar" MaxLength="50" />
+          <Property Name="model_yili" Type="int" />
+          <Property Name="arac_tam_adi" Type="varchar" MaxLength="100" />
+          <Property Name="Kayit" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="girisekrani">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciadi" Type="varchar" MaxLength="50" />
+          <Property Name="sifre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="musteriler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ad" Type="varchar" MaxLength="50" />
+          <Property Name="soyad" Type="varchar" MaxLength="50" />
+          <Property Name="telefon" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="aracid" Type="int" Nullable="false" />
+          <Property Name="Kayit" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="randevu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tarih" Type="datetime" />
+          <Property Name="musteriId" Type="int" Nullable="false" />
+          <Property Name="kayit" Type="nchar" MaxLength="1" />
+          <Property Name="randevuya_geldimi" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityContainer Name="TamiraneDBModelStoreContainer">
+          <EntitySet Name="araclar" EntityType="Self.araclar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="girisekrani" EntityType="Self.girisekrani" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="musteriler" EntityType="Self.musteriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="randevu" EntityType="Self.randevu" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TamiraneDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TamiraneDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="girisekrani" EntityType="TamiraneDBModel.girisekrani" />
+          <EntitySet Name="randevu" EntityType="TamiraneDBModel.randevu" />
+          <EntitySet Name="araclar" EntityType="TamiraneDBModel.araclar" />
+          <EntitySet Name="musteriler" EntityType="TamiraneDBModel.musteriler" />
+        </EntityContainer>
+        <EntityType Name="girisekrani">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciadi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="randevu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tarih" Type="DateTime" Precision="3" />
+          <Property Name="musteriId" Type="Int32" Nullable="false" />
+          <Property Name="kayit" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="randevuya_geldimi" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="araclar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="plaka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="marka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="model_yili" Type="Int32" />
+          <Property Name="arac_tam_adi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Kayit" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="musteriler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="aracid" Type="Int32" Nullable="false" />
+          <Property Name="Kayit" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TamiraneDBModelStoreContainer" CdmEntityContainer="TamiraneDBEntities">
+          <EntitySetMapping Name="girisekrani">
+            <EntityTypeMapping TypeName="TamiraneDBModel.girisekrani">
+              <MappingFragment StoreEntitySet="girisekrani">
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="kullaniciadi" ColumnName="kullaniciadi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="randevu">
+            <EntityTypeMapping TypeName="TamiraneDBModel.randevu">
+              <MappingFragment StoreEntitySet="randevu">
+                <ScalarProperty Name="randevuya_geldimi" ColumnName="randevuya_geldimi" />
+                <ScalarProperty Name="kayit" ColumnName="kayit" />
+                <ScalarProperty Name="musteriId" ColumnName="musteriId" />
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="araclar">
+            <EntityTypeMapping TypeName="TamiraneDBModel.araclar">
+              <MappingFragment StoreEntitySet="araclar">
+                <ScalarProperty Name="Kayit" ColumnName="Kayit" />
+                <ScalarProperty Name="arac_tam_adi" ColumnName="arac_tam_adi" />
+                <ScalarProperty Name="model_yili" ColumnName="model_yili" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="marka" ColumnName="marka" />
+                <ScalarProperty Name="plaka" ColumnName="plaka" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="musteriler">
+            <EntityTypeMapping TypeName="TamiraneDBModel.musteriler">
+              <MappingFragment StoreEntitySet="musteriler">
+                <ScalarProperty Name="Kayit" ColumnName="Kayit" />
+                <ScalarProperty Name="aracid" ColumnName="aracid" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

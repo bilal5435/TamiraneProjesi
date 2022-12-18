@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TamiraneDBModelStoreContainer" CdmEntityContainer="TamiraneDBEntities">
+    <EntitySetMapping Name="girisekrani">
+      <EntityTypeMapping TypeName="TamiraneDBModel.girisekrani">
+        <MappingFragment StoreEntitySet="girisekrani">
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="kullaniciadi" ColumnName="kullaniciadi" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="randevu">
+      <EntityTypeMapping TypeName="TamiraneDBModel.randevu">
+        <MappingFragment StoreEntitySet="randevu">
+          <ScalarProperty Name="randevuya_geldimi" ColumnName="randevuya_geldimi" />
+          <ScalarProperty Name="kayit" ColumnName="kayit" />
+          <ScalarProperty Name="musteriId" ColumnName="musteriId" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="araclar">
+      <EntityTypeMapping TypeName="TamiraneDBModel.araclar">
+        <MappingFragment StoreEntitySet="araclar">
+          <ScalarProperty Name="Kayit" ColumnName="Kayit" />
+          <ScalarProperty Name="arac_tam_adi" ColumnName="arac_tam_adi" />
+          <ScalarProperty Name="model_yili" ColumnName="model_yili" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="marka" ColumnName="marka" />
+          <ScalarProperty Name="plaka" ColumnName="plaka" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="musteriler">
+      <EntityTypeMapping TypeName="TamiraneDBModel.musteriler">
+        <MappingFragment StoreEntitySet="musteriler">
+          <ScalarProperty Name="Kayit" ColumnName="Kayit" />
+          <ScalarProperty Name="aracid" ColumnName="aracid" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
